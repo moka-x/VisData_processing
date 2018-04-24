@@ -3,7 +3,7 @@ Data preprocessing , database construction,  multi-mode query code. Remind as CC
 
 ## Idea Evaluation
 
-It proposed the system architecture and visual design. 
+It proposed the system architecture and visual design idea. 
  
 
 ## Database Process Command
