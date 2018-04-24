@@ -1,0 +1,29 @@
+ssh -p 7140 idvxlab@ip_1
+ssh -p 7140 idvxlab@ip_2
+
+sudo /etc/init.d/postgresql reload
+sudo /etc/init.d/postgresql restart
+sudo su postgres
+
+// ∆’Õ®”√ªß su postgres √‹¬Î 123456
+psql postgres
+
+alter user postgres with password '123456'
+
+psql -U postgres -h 127.0.0.1 -p 5432
+
+
+vim /etc/postgresql/9.5/main/postgresql.conf
+vim /etc/postgresql/9.5/main/pg_hba.conf
+
+psql -U postgres -h <ip> -p 5432
+
+scp -P 7140 M:/ECNU/iDVX/postgres_sql/mimic_database.sql idvxlab@ip:/home/idvxlab/postgresql/db_data/postgres_sql
+
+pg_dump -U postgres mimic_database>M:/ECNU/iDVX/postgres_sql/mimic_database.sql
+
+
+
+psql -U postgres -h <ip> -W -d mimic_database -f M:/ECNU/iDVX/postgres_sql/mimic_database.sql
+
+pg_dump -U postgres -t event mimic_database>M:/ECNU/iDVX/postgres_sql/mimic_database_event.sql
